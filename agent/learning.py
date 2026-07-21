@@ -93,7 +93,7 @@ class D4PGLearner:
 
 
 
-    def _step(self,critic_updates: int = 7) -> tuple[float, float, float]:
+    def _step(self,critic_updates: int = 3) -> tuple[float, float, float]:
         # Update target network
         if self.num_steps % self._target_update_period == 0:
             self._target_policy_network.load_state_dict(self._policy_network.state_dict())

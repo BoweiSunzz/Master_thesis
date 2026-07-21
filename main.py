@@ -19,8 +19,8 @@ from absl import flags
 
 
 FLAGS = flags.FLAGS
-flags.DEFINE_integer('train_sim', 3_0000, 'train episodes (Default 40_000)')
-flags.DEFINE_integer('eval_sim', 5_000, 'evaluation episodes (Default 40_000)')
+flags.DEFINE_integer('train_sim', 1_0000, 'train episodes (Default 40_000)')
+flags.DEFINE_integer('eval_sim', 1_000, 'evaluation episodes (Default 40_000)')
 flags.DEFINE_integer('init_ttm', 30, 'number of days in one episode (Default 60)')
 flags.DEFINE_float('mu', 0.0, 'spot drift (Default 0.2)')
 flags.DEFINE_integer('n_step', 5, 'DRL TD Nstep (Default 5)')
@@ -31,7 +31,7 @@ flags.DEFINE_float('moneyness_std', 0.0, 'new optiosn moneyness std (Default 0.0
 flags.DEFINE_string('critic', 'qr-huber', 'critic distribution type - c51, qr-huber, qr-gl, qr-gl_tl, '
                                      'qr-lapl, qr-lapl_tl, iqn-huber (Default c51)')
 flags.DEFINE_float('spread', 0.02, 'Hedging transaction cost (Default 0.0)')
-flags.DEFINE_string('obj_func', 'meanvar', 'Objective function select from meanstd, weightedmean, meanvar, var or cvar (Default var)')
+flags.DEFINE_string('obj_func', 'cvar', 'Objective function select from meanstd, weightedmean, meanvar, var or cvar (Default var)')
 flags.DEFINE_float('std_coef', 1.645, 'Std coefficient when obj_func=meanstd. (Default 1.645)')
 flags.DEFINE_float('threshold', 0.95, 'Objective function threshold. (Default 0.95)')
 flags.DEFINE_float('quantile_interval', 0.01, 'interval of quantiles . (Default 0.01)')
@@ -45,11 +45,11 @@ flags.DEFINE_string('agent_path', '', 'trained agent path, only used when eval_o
 flags.DEFINE_float('actor_lr', 1e-5, 'Learning rate for actor optimizer (Default 1e-4)')
 flags.DEFINE_float('critic_lr', 1e-3, 'Learning rate for critic optimizer (Default 1e-4)')
 flags.DEFINE_integer('batch_size', 256, 'Batch size to train the Network (Default 256)')
-flags.DEFINE_boolean('vega_obs', True,
+flags.DEFINE_boolean('vega_obs', False,
                      'Include portfolio vega and hedging option vega in state variables (Default False)')
 flags.DEFINE_integer('eval_seed', 8865, 'Evaluation Seed (Default 4321)')
-flags.DEFINE_boolean('gbm', False, 'GBM (Default False)')
-flags.DEFINE_boolean('sabr', True, 'SABR (Default False)')
+flags.DEFINE_boolean('gbm', True, 'GBM (Default False)')
+flags.DEFINE_boolean('sabr', False, 'SABR (Default False)')
 flags.DEFINE_float('discount', 0.99, 'reward discount rate (Default 0.99)')
 flags.DEFINE_boolean('stress_test', False, 'Stress test indicator (Default False)')
 

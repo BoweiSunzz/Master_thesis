@@ -136,7 +136,7 @@ def evaluate_checkpoints(agent, env, checkpoint_dir,
         })
 
     df = pd.DataFrame(results)
-    df = df.sort_values("VaR")
+    df = df.sort_values("meanstd")
     best_ckpt = df.iloc[-1]
 
     print("\n🏆 Best model:")
@@ -157,7 +157,7 @@ def eval(argv):
                                               mu=0.0, ttms=[int(ttm) for ttm in FLAGS.liab_ttms],
                                               action_low=float(FLAGS.action_space[0]), action_high=float(FLAGS.action_space[1]), stress_test=FLAGS.stress_test)
 
-    path = "New_folder"
+    path = "spread=0.02_obj=cvar_critic=qr-huber_20260419-033237"
 
     log_path = os.path.join("logs",path, "logs","eval_log.csv")
     environment = TradingEnv(utils=eval_utils, logger=Logger(log_path))
