@@ -21,11 +21,28 @@ Master_thesis/
 ├── environment/
 │   └── Simulation environment and utility functions for the thesis framework
 │
-├── evaluation/
-│   └── Evaluation procedures and performance analysis
-│
 ├── logs/
 │   └── Final training results, performance comparisons, and analysis outputs
 │
-├── main.py
-    └── Main script for integrating training
+├── main.py    # Main script for integrating training  
+│
+├── evaluation.py   # Evaluation procedures and performance analysis
+│
+├── overall.ipynb    #  Overall comparison and visualization across different RL objective functions
+ 
+    
+```
+
+## Running the Project
+
+To train and evaluate the models, run: 
+
+main.py
+
+The training process generates multiple models for each objective function. The corresponding training results and model outputs are stored in the logs/ directory.
+
+## Results
+
+The evaluation.py is used to evaluate models generated under the same objective function and identify the best-performing model based on the defined performance metrics.
+
+The final selected models from different objective functions are further compared using overall.ipynb. The analysis includes portfolio P&L statistics, risk metrics, hedging costs, and performance comparisons between RL-based and classical Greek-based hedging strategies.
