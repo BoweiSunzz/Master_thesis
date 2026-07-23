@@ -1,0 +1,8 @@
+numpy
+tensorflow
+scipy
+pandas
+matplotlib
+gym
+tensorflow_probability
+tqdm
